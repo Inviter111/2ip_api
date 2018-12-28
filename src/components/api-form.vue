@@ -11,13 +11,13 @@
                     <b-col>
                       <b-form @submit.prevent="GeoApi">
                         <b-form-group label="Введите IP" label-for="ipInput">
-                          <b-form-input id="ipInput" type="number" v-model="ip[0]" min="0" max="255" class="d-inline-block" style="width: 55px;" required/>
+                          <b-form-input id="ipInput" type="number" v-model="ip[0]" min="0" max="255" class="d-inline-block" required/>
                           .
-                          <b-form-input id="ipInput" type="number" v-model="ip[1]" min="0" max="255" class="d-inline-block" style="width: 55px;" required/>
+                          <b-form-input id="ipInput" type="number" v-model="ip[1]" min="0" max="255" class="d-inline-block" required/>
                           .
-                          <b-form-input id="ipInput" type="number" v-model="ip[2]" min="0" max="255" class="d-inline-block" style="width: 55px;" required/>
+                          <b-form-input id="ipInput" type="number" v-model="ip[2]" min="0" max="255" class="d-inline-block" required/>
                           .
-                          <b-form-input id="ipInput" type="number" v-model="ip[3]" min="0" max="255" class="d-inline-block" style="width: 55px;" required/>
+                          <b-form-input id="ipInput" type="number" v-model="ip[3]" min="0" max="255" class="d-inline-block" required/>
                         </b-form-group>
                         <b-button type="submit" variant="primary">Проверить</b-button>
                         <b-button variant="primary" @click="MyIp">Мой IP</b-button>
@@ -127,6 +127,7 @@ export default {
 
 #ipInput {
   -moz-appearance: textfield;
+  width: 55px;
 }
 
 label {
