@@ -20,7 +20,7 @@
                           <b-form-input id="ipInput" type="number" v-model="ip[3]" min="0" max="255" class="d-inline-block" required/>
                         </b-form-group>
                         <b-button type="submit" variant="primary">Проверить</b-button>
-                        <b-button variant="primary" @click="MyIp">Мой IP</b-button>
+                        <b-button variant="primary" @click="GeoApi">Мой IP</b-button>
                       </b-form>
                     </b-col>
                     <b-col>
@@ -103,16 +103,10 @@ export default {
   },
   methods: {
     async GeoApi() {
-      const res = await this.axios.get(`https://api.2ip.ua/geo.json?ip=${this.ip[0]}.${this.ip[1]}.${this.ip[2]}.${this.ip[3]}`)
+      const res = event.target.innerHTML == "Мой IP" ? await this.axios.get('https://api.2ip.ua/geo.json?ip=') : await this.axios.get(`https://api.2ip.ua/geo.json?ip=${this.ip[0]}.${this.ip[1]}.${this.ip[2]}.${this.ip[3]}`)
       this.geoIp = res.data
       localStorage.setItem(this.geoIp.ip, JSON.stringify(this.geoIp))
       this.history.push(this.geoIp)
-    },
-    async MyIp() {
-      const res = await this.axios.get('https://api.2ip.ua/geo.json?ip=')
-      this.geoIp = res.data
-      localStorage.setItem(this.geoIp.ip, JSON.stringify(this.geoIp))
-      this.history.push(this.geoIp) 
     }
   },
 }
